@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>이 페이지에는 많은 텍스트 콘텐츠가 있습니다!</h1>
+<p id = "highlight" class = "content">
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ea enim exercitationem ipsam iusto magni maxime neque sit tenetur? Dolorum incidunt labore laboriosam nemo nulla officia quasi, quidem voluptates voluptatibus. ===================
+  <span
+    class = "sentence1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto beatae cupiditate dignissimos dolore harum, in minima nemo nihil placeat praesentium provident repellendus sapiente sunt tempora temporibus ullam vitae voluptates voluptatum.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci amet asperiores autem delectus deserunt distinctio earum, et harum inventore iure laudantium quia quidem saepe sit soluta ut. Laudantium, quibusdam! ===================
+  <span
+    class = "sentence2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet atque, corporis, cumque eaque eligendi enim excepturi exercitationem harum impedit nobis, officia porro praesentium quibusdam quidem quos veniam vero voluptas?</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum eos expedita, explicabo laboriosam, maxime nobis nostrum numquam reiciendis reprehenderit saepe sit, veniam. A consequuntur doloremque illum maxime veniam. Consequuntur. ===================
+  <span
+    class = "sentence3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, iste voluptatibus? Doloribus ducimus esse ex harum impedit obcaecati sed ullam vel? Aliquam assumenda autem doloribus, ducimus inventore minus obcaecati rem.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, beatae eaque eligendi est et excepturi id impedit ipsum praesentium quisquam quo quod reprehenderit sint tempora unde. Accusantium beatae delectus suscipit. ===================
+  <span
+    class = "sentence4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consectetur dolor dolorem, earum eos explicabo mollitia odio officia, qui rem rerum vitae? Deleniti mollitia nam recusandae? Alias error itaque porro.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae cum, deleniti, eaque ex excepturi explicabo facilis id illo in optio pariatur, quibusdam ratione rerum soluta unde. Cum, dolore. ===================
+  <span
+    class = "sentence5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae distinctio, dolorem ex facilis fugit harum iusto laborum nam porro, praesentium quam quis ratione rem similique voluptatem, voluptatibus. Nisi, perferendis.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ea enim exercitationem ipsam iusto magni maxime neque sit tenetur? Dolorum incidunt labore laboriosam nemo nulla officia quasi, quidem voluptates voluptatibus. ===================
+</p>
+<script>
+  const paragraph = document.querySelector("#highlight");
+  console.log("paragraph.textContent : " + paragraph.textContent);  // toString 과 같은 효과
+  const pElem = paragraph.children;
+  console.log("pElemL : " + pElem);
+  console.log("pElem[0] : " + pElem[0]);
+  // console.log("pElem[0].innerHTML : " +pElem[0].innerHTML);
+  // pElem[0].textContent = '<br>엘리먼트 내부의 텍스트만 직접 수정'
+  // pElem[0].innerHTML = '<br>엘리먼트 내부의 텍스트만 직접 수정'
+  pElem[0].innerHTML = `<br>${pElem[0].innerHTML}`
+  // 내부 HTML 구조를 융지한 상태로 화면을 편집하는 것이 바람직 !
+
+</script>
+</body>
+</html>

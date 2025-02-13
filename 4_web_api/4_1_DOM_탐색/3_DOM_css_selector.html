@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>CSS 선택자를 활용한 JS DOM 탐색</title>
+</head>
+<body>
+<ul id = "hobby">
+  <li class = "hobby game">게임</li>
+  <li class = "hobby youtube">유튜브</li>
+  <li class = "hobby swimming">수영</li>
+  <li class = "hobby null">Null</li>
+</ul>
+<script>
+  // #hobby -> ul 태그
+  // .hobby -> li 태그 전부
+  // #hobby>.null -> <li>Null</li>
+
+  const $hobbyList = document.querySelector("#hobby");
+  console.log($hobbyList);
+  // 단수 요소, 복수 요소 조회 시 메서드가 다름!
+  // querySelector 는 여러 개가 일치해도 "최초 출현하는 요소" 하나만 매칭
+
+  // const $hobbies = document.querySelector(".hobby");
+  const $hobbies = document.querySelectorAll(".hobby");
+  console.log($hobbies);
+
+  const $nullHobbyElem =  document.querySelector("#hobby>.null");
+  console.log($nullHobbyElem);
+
+  const $multipleSelector = document.querySelectorAll("#hobby, .hobby");
+  console.log($multipleSelector);
+</script>
+</body>
+</html>

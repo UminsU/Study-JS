@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>자식 객체를 탐색하는 방법</title>
+</head>
+<body>
+<h1>이 페이지에는 많은 텍스트 콘텐츠가 있습니다!</h1>
+<p id = "highlight" class = "content">
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ea enim exercitationem ipsam iusto magni maxime neque sit tenetur? Dolorum incidunt labore laboriosam nemo nulla officia quasi, quidem voluptates voluptatibus. ===================
+  <span class = "sentence1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto beatae cupiditate dignissimos dolore harum, in minima nemo nihil placeat praesentium provident repellendus sapiente sunt tempora temporibus ullam vitae voluptates voluptatum.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci amet asperiores autem delectus deserunt distinctio earum, et harum inventore iure laudantium quia quidem saepe sit soluta ut. Laudantium, quibusdam! ===================
+  <span class = "sentence2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet atque, corporis, cumque eaque eligendi enim excepturi exercitationem harum impedit nobis, officia porro praesentium quibusdam quidem quos veniam vero voluptas?</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum eos expedita, explicabo laboriosam, maxime nobis nostrum numquam reiciendis reprehenderit saepe sit, veniam. A consequuntur doloremque illum maxime veniam. Consequuntur. ===================
+  <span class = "sentence3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, iste voluptatibus? Doloribus ducimus esse ex harum impedit obcaecati sed ullam vel? Aliquam assumenda autem doloribus, ducimus inventore minus obcaecati rem.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, beatae eaque eligendi est et excepturi id impedit ipsum praesentium quisquam quo quod reprehenderit sint tempora unde. Accusantium beatae delectus suscipit. ===================
+  <span class = "sentence4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consectetur dolor dolorem, earum eos explicabo mollitia odio officia, qui rem rerum vitae? Deleniti mollitia nam recusandae? Alias error itaque porro.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae cum, deleniti, eaque ex excepturi explicabo facilis id illo in optio pariatur, quibusdam ratione rerum soluta unde. Cum, dolore. ===================
+  <span class = "sentence5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae distinctio, dolorem ex facilis fugit harum iusto laborum nam porro, praesentium quam quis ratione rem similique voluptatem, voluptatibus. Nisi, perferendis.</span>
+  <br>
+  Normal sentence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ea enim exercitationem ipsam iusto magni maxime neque sit tenetur? Dolorum incidunt labore laboriosam nemo nulla officia quasi, quidem voluptates voluptatibus. ===================
+</p>
+<script>
+  // text 콘텐츠를 전부 감지
+  const $parent = document.getElementsByClassName('content')[0];
+  console.log("==================  텍스트 탐색 ==================");
+  console.log($parent);
+  const $children = $parent.children;
+  console.log($children);
+  const $childNodes = $parent.childNodes;
+  console.log($childNodes);
+
+  // 2) 형제 요소 탐색
+  const $firstElemChild = $parent.firstElementChild;
+  $firstElemChild.style.color = 'blue';
+  console.log("==================  형제요소 탐색 ==================");
+  console.log($firstElemChild);
+  const $firstChild = $parent.firstChild; // 일반 노드
+  // $firstChild.style.color = 'purple'; // 태그가 아니므로 스타일 속성을 가질 수 없음
+  console.log($firstChild);
+  $firstChild.textContent = '이 요소는 Element 가 아닙니다'
+  console.log($firstChild);
+  console.log(typeof $firstChild);
+
+  // 전후 탐색
+  console.log("==================  전후 탐색 ==================");
+  console.log($firstChild.previousSibling);
+
+  console.log($firstChild.nextSibling);
+  console.log($firstChild.nextSibling.nextSibling);
+  console.log($firstChild.nextSibling.nextSibling.nextSibling);
+
+  console.log($firstElemChild.nextElementSibling);
+  console.log($firstElemChild.nextElementSibling.nextElementSibling);
+
+  // 3) 부모 요소 탐색
+  console.log("==================  부모요소 탐색 ==================");
+  const $lastChild = $parent.lastElementChild;
+  console.log($lastChild);
+  const $grandParent = $parent.parentElement;
+  console.log($grandParent);
+
+</script>
+</body>
+</html>

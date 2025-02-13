@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>속성노드의 기본 구조 확인하기</title>
+  <style>
+      body {
+          background-color: lightblue;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      input {
+          width: 200px;
+          height: 50px;
+          font-size: 20px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+      }
+  </style>
+</head>
+<body>
+<input type = "email" id = "username" placeholder = "insert login email" value = "">
+<script>
+  const $loginInput = document.querySelector('input');
+  console.log($loginInput);
+  console.log($loginInput.attributes);
+
+  // attributes 노드를 직접 편집해 보기
+  // $loginInput.attributes.type.value = 'password';
+  $loginInput.attributes.id.value = 'account';
+  // console.log("$loginInput.type : " + $loginInput.type);
+  console.log("$loginInput.id : " + $loginInput.id);
+  $loginInput.attributes.value.value = 'js-filled@email.addr';
+
+  // JS 에서의 DOM 객체가 가지고 있는 "유사배열" 적 특성을 사용하면
+  // 스타일 적용, 데이터 순회, 등등.. 반복문, 제어문을 수행하기 쉬워짐!
+  for (let item of $loginInput.attributes) {
+    console.log("item (of): " + item); //  배열 순회 -> 편리 !
+  }
+
+  for (let item in $loginInput.attributes) {
+    console.log("item (in): " + item); //  객체 순회 -> 불편
+  }
+
+  // JS 변수 선언을 한번에 여러 개 가능
+  let id, class_, type, placeholder, value;
+  type = 'email'
+  id = 'username'
+  class_ = 'login-form'
+  placeholder = 'insert login email'
+  value = 'js-filled@email.addr'
+
+  console.log("$loginInput.attributes :" + $loginInput.attributes);
+  const attributesObj = {
+    type: 'email',
+    id: 'username',
+    class_: 'login-form',
+    placeholder: 'insert login email',
+    value: 'js-filled-with-obj@email.addr'
+  }  // attr 타입으로 변경해서 교체 가능
+
+  const attrObjCopy = Attr();
+
+  $loginInput.attributes.setNamedItemNS(attrObjCopy);
+  console.log("$loginInput :" + $loginInput);
+
+  // 전체 Element 객체를 갈아버리는 방법
+  let newInputTag = {
+    tagName: 'input',
+    attributes: attributesObj
+  }
+
+</script>
+</body>
+</html>

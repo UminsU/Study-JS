@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>DOM 태그 요소에 대한 CUD 수행</title>
+</head>
+<body>
+<Ul id = "lunch">
+  <li class = "lunch-item">맘스터치</li>
+  <li class = "lunch-item">김밥</li>
+  <li class = "lunch-item">중국집</li>
+</Ul>
+<script>
+  const $lunchList = document.querySelector('#lunch');
+  console.log($lunchList.firstElementChild);
+  // 새로운 리스트 요소 추가하기
+  const newLunchMenu1 = document.createElement('li');
+  newLunchMenu1.textContent = '교직원 식사'
+  newLunchMenu1.classList.add('lunch-item');
+  const newLunchMenu2 = document.createElement('li');
+  newLunchMenu2.textContent = '도시락'
+  newLunchMenu2.classList.add('lunch-item');
+  console.log(newLunchMenu1,newLunchMenu2);
+
+  // 화면에 추가하기
+  // 1) 맨 앞에 or 맨 뒤에
+  $lunchList.insertBefore(newLunchMenu1,$lunchList.firstElementChild)
+  $lunchList.insertBefore(newLunchMenu2,$lunchList.lastElementChild)
+
+  // 2) 기존 요소 교체
+  $lunchList.replaceChild(newLunchMenu2,$lunchList.children[2])
+
+  // 3) 기존 요소 삭제
+  $lunchList.removeChild($lunchList.children[3])
+</script>
+</body>
+</html>
