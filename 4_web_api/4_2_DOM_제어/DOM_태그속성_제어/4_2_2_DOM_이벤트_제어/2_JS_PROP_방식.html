@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 프로퍼티 방식으로 이벤트 바인딩!</title>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          rel="stylesheet">
+    <!-- <link rel="stylesheet" href="app.css"></link> -->
+    <script crossorigin="anonymous"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<!--.container>button#btn${이벤트$}*3-->
+<di class="container">
+    <button id="btn1">이벤트1</button>
+    <button id="btn2">이벤트2</button>
+    <button id="btn3">이벤트3</button>
+</di>
+<script>
+    const [$btn1, $btn2, $btn3] = document.querySelectorAll('button')
+    console.log($btn1, $btn2, $btn3)
+    // 버튼 1 : 하나의 이벤트가 여러개의 이벤트 핸들러 트리거
+    $btn1.onclick = () => alert("welcome!");
+    // $btn1.onclick = () => alert("goodbye!");
+    $btn1.addEventListener('click', () => alert("goodbye!"))
+
+    // 버튼 2 : 여러 종류 이벤트에 대한 별도 핸들러 적용
+    $btn2.onmouseover = () => {
+        $btn2.classList.add('bg-danger')
+    }
+    $btn2.onmouseleave = () => {
+        $btn2.classList.replace('bg-danger', 'bg-warning')
+    }
+
+    $btn3.onclick = () => alert("이 동작은 시간 제한이 있습니다!")
+    setTimeout( // 딜레이 동작 적용 가능
+        // (동작, 시간) 파라미터 전달
+        () => $btn3.onclick = null, 5000
+    )
+</script>
+</body>
+</html>
