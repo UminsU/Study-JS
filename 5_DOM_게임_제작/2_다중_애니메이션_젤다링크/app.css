@@ -1,0 +1,216 @@
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#zelda-link {
+    width: 60px;
+    height: 65px;
+    background: url('img/zelda-link/front_stand.png') no-repeat center/cover;
+
+    /*animation-fill-mode: forwards; */ /* 마지막에서 멈춤 */
+    animation-fill-mode: backwards; /* 첫상태로 되돌림 */
+}
+
+/* 애니메이션 정의 */
+/* 애니메이션 명, 컷 개수 커버리지 */
+@keyframes forward-step {
+    0% {
+        background: url('img/zelda-link/front_walk0.png') no-repeat center/cover;
+    }
+    10% {
+        background: url('img/zelda-link/front_walk1.png') no-repeat center/cover;
+    }
+    20% {
+        background: url('img/zelda-link/front_walk2.png') no-repeat center/cover;
+    }
+    30% {
+        background: url('img/zelda-link/front_walk3.png') no-repeat center/cover;
+    }
+    40% {
+        background: url('img/zelda-link/front_walk4.png') no-repeat center/cover;
+    }
+    50% {
+        background: url('img/zelda-link/front_walk5.png') no-repeat center/cover;
+    }
+    60% {
+        background: url('img/zelda-link/front_walk6.png') no-repeat center/cover;
+    }
+    70% {
+        background: url('img/zelda-link/front_walk7.png') no-repeat center/cover;
+    }
+    80% {
+        background: url('img/zelda-link/front_walk8.png') no-repeat center/cover;
+    }
+    90% {
+        background: url('img/zelda-link/front_walk9.png') no-repeat center/cover;
+    }
+    100% {
+        background: url('img/zelda-link/front_walk0.png') no-repeat center/cover;
+    }
+}
+
+.walking-forward {
+    animation: forward-step 500ms linear infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-forward {
+    background: url(img/zelda-link/front_stand.png) no-repeat center/cover !important;
+    /*animation: forward-step 500ms linear infinite 0s;
+    animation-fill-mode: backwards;*/
+    animation-play-state: paused;
+}
+
+@keyframes backward-step {
+    0% {
+        background: url('img/zelda-link/back_walk0.png') no-repeat center/cover;
+    }
+    10% {
+        background: url('img/zelda-link/back_walk1.png') no-repeat center/cover;
+    }
+    20% {
+        background: url('img/zelda-link/back_walk2.png') no-repeat center/cover;
+    }
+    30% {
+        background: url('img/zelda-link/back_walk3.png') no-repeat center/cover;
+    }
+    40% {
+        background: url('img/zelda-link/back_walk4.png') no-repeat center/cover;
+    }
+    50% {
+        background: url('img/zelda-link/back_walk5.png') no-repeat center/cover;
+    }
+    60% {
+        background: url('img/zelda-link/back_walk6.png') no-repeat center/cover;
+    }
+    70% {
+        background: url('img/zelda-link/back_walk7.png') no-repeat center/cover;
+    }
+    80% {
+        background: url('img/zelda-link/back_walk8.png') no-repeat center/cover;
+    }
+    90% {
+        background: url('img/zelda-link/back_walk9.png') no-repeat center/cover;
+    }
+    100% {
+        background: url('img/zelda-link/back_walk0.png') no-repeat center/cover;
+    }
+}
+
+.walking-backward {
+    animation: backward-step 500ms linear infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-backward {
+    background: url(img/zelda-link/back_stand.png) no-repeat center/cover !important;
+    /*animation: forward-step 500ms linear infinite 0s;
+    animation-fill-mode: backwards;*/
+}
+
+@keyframes leftward-step {
+    0% {
+        background: url('img/zelda-link/left_walk0.png') no-repeat center/cover;
+    }
+    10% {
+        background: url('img/zelda-link/left_walk1.png') no-repeat center/cover;
+    }
+    20% {
+        background: url('img/zelda-link/left_walk2.png') no-repeat center/cover;
+    }
+    30% {
+        background: url('img/zelda-link/left_walk3.png') no-repeat center/cover;
+    }
+    40% {
+        background: url('img/zelda-link/left_walk4.png') no-repeat center/cover;
+    }
+    50% {
+        background: url('img/zelda-link/left_walk5.png') no-repeat center/cover;
+    }
+    60% {
+        background: url('img/zelda-link/left_walk6.png') no-repeat center/cover;
+    }
+    70% {
+        background: url('img/zelda-link/left_walk7.png') no-repeat center/cover;
+    }
+    80% {
+        background: url('img/zelda-link/left_walk8.png') no-repeat center/cover;
+    }
+    90% {
+        background: url('img/zelda-link/left_walk9.png') no-repeat center/cover;
+    }
+    100% {
+        background: url('img/zelda-link/left_walk0.png') no-repeat center/cover;
+    }
+}
+
+.walking-leftward {
+    animation: leftward-step 500ms linear infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-leftward {
+    background: url(img/zelda-link/left_stand.png) no-repeat center/cover !important;
+    /*animation: forward-step 500ms linear infinite 0s;
+    animation-fill-mode: backwards;*/
+}
+
+@keyframes rightward-step {
+    0% {
+        background: url('img/zelda-link/right_walk0.png') no-repeat center/cover;
+    }
+    10% {
+        background: url('img/zelda-link/right_walk1.png') no-repeat center/cover;
+    }
+    20% {
+        background: url('img/zelda-link/right_walk2.png') no-repeat center/cover;
+    }
+    30% {
+        background: url('img/zelda-link/right_walk3.png') no-repeat center/cover;
+    }
+    40% {
+        background: url('img/zelda-link/right_walk4.png') no-repeat center/cover;
+    }
+    50% {
+        background: url('img/zelda-link/right_walk5.png') no-repeat center/cover;
+    }
+    60% {
+        background: url('img/zelda-link/right_walk6.png') no-repeat center/cover;
+    }
+    70% {
+        background: url('img/zelda-link/right_walk7.png') no-repeat center/cover;
+    }
+    80% {
+        background: url('img/zelda-link/right_walk8.png') no-repeat center/cover;
+    }
+    90% {
+        background: url('img/zelda-link/right_walk9.png') no-repeat center/cover;
+    }
+    100% {
+        background: url('img/zelda-link/right_walk0.png') no-repeat center/cover;
+    }
+}
+
+.walking-rightward {
+    animation: rightward-step 500ms linear infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-rightward {
+    background: url(img/zelda-link/right_stand.png) no-repeat center/cover !important;
+    /*animation: forward-step 500ms linear infinite 0s;
+    animation-fill-mode: backwards;*/
+}
+
+/* 로딩화면에서 모든 이미지를 한번씩 돌리는 작업을 하면 첫 실행시 이미지를 받아오면서 반짝이는 효과가 줄어듦 */
+@keyframes all-step {
+    /* 이부분에 모든 이미지 상태 불러 오면 됨 */
+    /* 아래에서 짧게 실행 시킴 */
+}
+
+.load-all {
+    animation: all-step 10ms linear 0;
+    animation-play-state: running;
+}
