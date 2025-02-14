@@ -1,0 +1,51 @@
+#runningman {
+    width: 150px;
+    height: 191px;
+    background-image: url("img/runningman/runningman1.png");
+    /*animation: forwards-run 500ms linear infinite 0s;
+    animation-play-state:paused;*/
+}
+
+/* JS 의 동적 클래스 토글을 사용 가능한 경우 제어 패턴이 콤팩트해짐! */
+.play-running {
+    animation: forward-run 500ms linear infinite 0s;
+    animation-play-state: running;
+}
+
+.pause-running {
+    animation: forward-run 500ms linear infinite 0s;
+    animation-play-state: paused;
+}
+
+/* 애니메이션 정의 */
+/* 애니메이션 명, 컷 개수 커버리지 */
+@keyframes forward-run {
+    0% {
+        background-image: url('img/runningman/runningman1.png');
+    }
+    12.5% {
+        background-image: url('img/runningman/runningman2.png');
+    }
+    25% {
+        background-image: url('img/runningman/runningman3.png');
+    }
+    37.5% {
+        background-image: url('img/runningman/runningman4.png');
+    }
+    50% {
+        background-image: url('img/runningman/runningman5.png');
+    }
+    62.5% {
+        background-image: url('img/runningman/runningman6.png');
+    }
+    75% {
+        background-image: url('img/runningman/runningman7.png');
+    }
+    87.5% {
+        background-image: url('img/runningman/runningman8.png');
+    }
+    100% {
+        background-image: url('img/runningman/runningman1.png');
+    }
+
+}
