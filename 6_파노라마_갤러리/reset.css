@@ -1,0 +1,16 @@
+/* 간소화된 스타일 리셋 시작 */
+* {
+    margin: 0;
+    padding: 0;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    outline: 0;
+    text-decoration: none;
+}
+img {
+    border: 0;
+}
+/* 간소화된 스타일 리셋 종료 */

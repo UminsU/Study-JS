@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wildmental's Home</title>
+  <!-- 외부 라이브러리 로드 -->
+  <!-- 외부에서 만들어진 요소 하나도 사용 없이 직접 적용하기~! -->
+  <link rel="stylesheet" href="reset.css">
+  <!-- fontawesome -->
+  <!-- 1. 사이트에서 내 계정 소유 키트 주소 생성 및 붙여넣기! -->
+  <script src="https://kit.fontawesome.com/14cc7d0d67.js" crossorigin="anonymous"></script>
+  <!-- 커스텀 스타일 및 JS -->
+  <link rel="stylesheet" href="style.css">
+  <script defer src="galleryScript.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <!-- 배경 : 영상 -->
+  <video class="bg-mov" src="mov/e1.mp4" autoplay loop muted></video>
+  <!-- 파노라마 스핀 : 8장 (section.circle>article.face$*8) -->
+  <section id="gallery-circle" class="circle">
+    <article class="face1">
+      <!--   .face1 : Front Page   -->
+      <h1>Face Title</h1>
+      <div class="inner">
+        <!-- div>h2+img+h3+p -->
+        <div>
+          <h2>Frontpage : News/Article Title</h2>
+          <!--<img src="img/front_robot.jpg" alt="robot-image">-->
+          <div class="robot-img"></div>
+          <h3>AI Robot is rising!</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate fugiat libero magni nihil non perferendis porro! Ab aut dolor, dolore magni minima quae repellendus rerum sapiente tempore tenetur? Optio!</p>
+        </div>
+      </div>
+    </article>
+    <article class="face2">
+      <!--   .face2 : Index/Nav   -->
+      <h1>Index</h1>
+      <div class="inner">
+        <!--nav>(div>p+h2)*6-->
+        <nav>
+          <div>
+            <p><i class="fa-solid fa-laptop-code"></i></p>
+            <h2>Dev Culture</h2>
+          </div>
+          <div>
+            <p><i class="fa-solid fa-sitemap"></i></p>
+            <h2>Organization Structure</h2>
+          </div>
+          <div>
+            <p><i class="fa-brands fa-github"></i></p>
+            <h2>Project Repository</h2>
+          </div>
+          <div>
+            <p><i class="fa-solid fa-pen-nib"></i></p>
+            <h2>Design Concept</h2>
+          </div>
+          <div>
+            <p><i class="fa-solid fa-shield-halved"></i></p>
+            <h2>Security System</h2>
+          </div>
+          <div>
+            <p><i class="fa-solid fa-headset"></i></p>
+            <h2>Help Desk</h2>
+          </div>
+        </nav>
+      </div>
+    </article>
+    <article class="face3">
+      <h1>Members</h1>
+      <div class="inner">
+        <!--(div>.mem-pic+.mem-intro)*3-->
+        <div>
+          <div class="mem-pic"></div>
+          <div class="mem-intro">
+            <h2>Member Name</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus fugit iure nobis, perspiciatis quaerat quam </p>
+            <span class="join-date">2025.02.18</span>
+          </div>
+        </div>
+        <div>
+          <div class="mem-pic"></div>
+          <div class="mem-intro">
+            <h2>Member Name</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet, animi atque beatae culpa debitis </p>
+            <span class="join-date">2025.02.18</span>
+          </div>
+        </div>
+        <div>
+          <div class="mem-pic"></div>
+          <div class="mem-intro">
+            <h2>Member Name</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aperiam at blanditiis cumque, earum, error </p>
+            <span class="join-date">2025.02.18</span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="face4">
+      <h1>Media Contents</h1>
+      <div class="inner">
+        <div>
+          <video src="mov/fable_world.mp4" loop autoplay muted></video>
+          <h2>Welcome to The Fable World</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid aspernatur delectus, deleniti</p>
+        </div>
+        <div>
+          <h2>Grok3 is Launching Today!</h2>
+          <p>Discover Grok 3, the pinnacle of AI from xAI: hailed by Elon Musk as the smartest AI on Earth. Experience the ultimate answers to your questions, live at 8 PM PST on Monday, February 17, 2025!</p>
+          <span class="topic-date">2025.02.18</span>
+        </div>
+      </div>
+    </article>
+    <article class="face5">
+      <!--   이미지 사이즈가 고려된 경우 레이아웃 구성   -->
+      <h1>Face Title</h1>
+      <div class="inner">
+        <div>
+          <!--h2+.pic+(img)*3-->
+          <h2>Company Slogan</h2>
+          <div class="pic">
+            <!-- 가변 크기 이미지를 교체하면서 쓸 수 있도록 한장은 백그라운드 처리 -->
+          </div>
+          <img src="img/txt.png" alt="company-slogan">
+          <img src="img/btn.png" alt="learn-more">
+          <img class="reflect" src="img/reflect.png" alt="reflect-effect">
+        </div>
+      </div>
+    </article>
+    <article class="face6">
+      <h1>Media Channels</h1>
+      <div class="inner">
+        <!--(div>i+.content>h2+p)*4-->
+        <div>
+          <i class="fa-brands fa-discord"></i>
+          <div class="content">
+            <h2>Discord Contact</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <a href="https://to-contact.tt.cc">https://to-contact.tt.cc</a>
+          </div>
+        </div>
+        <div>
+          <i class="fa-brands fa-linkedin"></i>
+          <div class="content">
+            <h2>LinkedIn Contact</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <a href="https://to-contact.tt.cc">https://to-contact.tt.cc</a>
+          </div>
+        </div>
+        <div>
+          <i class="fa-brands fa-instagram"></i>
+          <div class="content">
+            <h2>Instagram Channel</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <a href="https://to-contact.tt.cc">https://to-contact.tt.cc</a>
+          </div>
+        </div>
+        <div>
+          <i class="fa-brands fa-tiktok"></i>
+          <div class="content">
+            <h2>TikTok Channel</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <a href="https://to-contact.tt.cc">https://to-contact.tt.cc</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="face7">
+      <h1>Overlapping Items!</h1>
+      <div class="inner">
+        <div>
+          <!--div>video+h2+(img)*2-->
+          <h2>Look At the<br>Upcoming<br>Future Era!</h2>
+          <div class="video-frame">
+            <video src="mov/see-the-future.mp4" loop autoplay muted></video>
+            <img class="deco-text" src="img/txt2.png" alt="deco-text">
+            <img class="deco-line" src="img/line.png" alt="deco-line">
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="face8">
+      <h1>Face Title</h1>
+      <div class="inner">
+        <div>
+          <h2>Today's Weather</h2>
+          <span>-2 ~ -7</span>
+          <i class="fa-solid fa-temperature-low"></i>
+        </div>
+        <!--(div>p+i+h3)*2-->
+        <div>
+          <p>
+            precipitation<br>: 1%
+          </p>
+          <i class="fa-regular fa-sun"></i>
+          <h3>Sunny</h3>
+        </div>
+        <div>
+          <p>
+            31<br>: GOOD
+          </p>
+          <i class="fa-solid fa-wind"></i>
+          <h3>AQI</h3>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+</body>
+</html>

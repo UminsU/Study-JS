@@ -1,0 +1,404 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+/* ========== 레이아웃 및 배경제어 시작 ========== */
+body {
+    /* 다른 요소들을 돋보이게 해주는 형태로 변경 */
+    background: #000;
+    /* font-size/line-height "font-name" */
+    font: 17px/1.4 "orbitron";
+    color: #ddd;
+}
+.wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+}
+.bg-mov {
+    position: fixed;
+    /* 다른 요소들을 돋보이게 해주는 형태로 변경 */
+    opacity: 0.5;
+    /* 오버플로우가 발생하지 않는 사이즈로 제어 */
+    width: 100%;
+    height: 100%;
+    /* 상위 요소의 남은공간이 없게 커버 */
+    /* (오버플로우 일부 허용: 기존 사이즈가 max-w/max-h 로 적용됨) */
+    object-fit: cover;
+}
+/* ========== 레이아웃 및 배경제어 끝 ========== */
+
+/* ========== 갤러리 화면 요소 제어 시작 ========== */
+/* ---------- 1) 갤러리 Spin 요소 기본설정 ---------- */
+/*  문서 레이아웃에 맞추어 적용되게끔 내가 구성한 페이지의 구조를 선택자에 반영  */
+.wrap .circle { /*  circle 과 같은 일반명사 네이밍을 사용하는 경우 선택자 구체성을 올려주면 좋다  */
+                /*  #gallery-circle 도 사용 가능  */
+    /* 레이아웃 설정용 임시 배경 설정 */
+    /*background: #ddd;*/
+    /*  중심정렬 테크닉 : 나중에 상대단위로 변경 가능 */
+    width: 600px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -400px;
+    /*  3D 변형을 위한 기본 속성  */
+    transform-style: preserve-3d;
+    /*  파노라마 애니메이션 8개 face 에 대해 일괄적용  */
+    animation: panorama-spin linear 10s infinite;
+    /*  애니메이션 스핀각도 작업용 제어  */
+    /*transform: rotateY(45deg)*/
+}
+.wrap .circle:hover {
+    animation-play-state: paused;
+}
+.wrap .circle article {  /* .face1~8 일괄 적용 */
+    /* 레이아웃 설정용 임시 배경 및 테두리 설정 */
+    /*background: #ddd;*/
+    /*border: aquamarine 5px solid;*/
+    /* 공간 점유 */
+    width: 100%;
+    height: 100%;
+    /* 위치 상호작용 해제 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 3D 적용 후 아래 뒷면 숨김 적용 확인 */
+    backface-visibility: hidden;
+}
+@keyframes panorama-spin {
+    0% { transform: rotateY(0deg) }
+    100% { transform: rotateY(360deg) }
+}
+/* ---------- 1) 갤러리 Spin 요소 기본설정 끝 ---------- */
+/* ---------- 2) 개별 Face 요소 위치 제어 ---------- */
+.face1 {
+    transform: rotateY(0deg) translateZ(-765px);
+}
+.face2 {
+    transform: rotateY(45deg) translateZ(-765px);
+}
+.face3 {
+    transform: rotateY(90deg) translateZ(-765px);
+}
+.face4 {
+    transform: rotateY(135deg) translateZ(-765px);
+}
+.face5 {
+    transform: rotateY(180deg) translateZ(-765px);
+}
+.face6 {
+    transform: rotateY(225deg) translateZ(-765px);
+}
+.face7 {
+    transform: rotateY(270deg) translateZ(-765px);
+}
+.face8 {
+    transform: rotateY(315deg) translateZ(-765px);
+}
+/* ---------- 2) 개별 Face 요소 위치 제어 끝 ---------- */
+
+/* ---------- 3) Face 별 타이틀 제어 시작 ---------- */
+.wrap .circle article h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 30px;
+    opacity: 0;
+    /* 모던해 보이려면 속도감 제어 : "너무 빠르기 직전" */
+    transition: all 450ms;
+}
+.wrap .circle article:hover h1 {
+    opacity: 1;
+    top: -70px;
+}
+/* ---------- 3) Face 별 타이틀 제어 끝 ---------- */
+/* ---------- 4) 내부 콘텐츠 공통 레이아웃 및 동작 지정 시작 ---------- */
+.wrap .inner {
+    /* 여러 겹 층층이 체계화 & 구조화 : 프로젝트 특성에 따름 */
+    width: 100%;
+    height: 100%;
+}
+.wrap .inner>div, .inner>nav>div {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255,255,255,0.5);  /* alpha = opacity */
+    box-sizing: border-box;
+    padding: 35px;
+    position: relative;  /* 내부요소 정렬을 위해서 기준점으로 relative 선언 */
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+    /* title 과 카드 내부 효과 전환 속도 분리 */
+    transition: all 300ms;
+    opacity: 0.7;
+}
+.wrap .inner>div:hover, .inner>nav>div:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px aquamarine;
+}
+.wrap .inner>div:hover i, .inner>nav>div:hover i {
+    text-shadow: 0 0 10px aqua;
+}
+/* ---------- 4) 내부 콘텐츠 공통 레이아웃 및 동작 지정 끝 ---------- */
+/* ---------- 5) 내부 콘텐츠 Face 별 개별 동작 지정 시작 ---------- */
+/* -------- [.face1] -------- */
+/*.face1>.inner img {*/
+/*    !* 소스 사이즈가 이미 고려되어 있을 때 */
+/*       마크업이 이미 이미지로 되어 있을 때 *!*/
+/*    width: 100%;*/
+/*    height: 50%;*/
+/*}*/
+.face1>.inner .robot-img {
+    width: 100%;
+    height: 67%;
+    background: url("img/front_robot.jpg") no-repeat top/cover;
+    margin: 25px 0;  /* margin - top & bottom*/
+}
+.face1 .inner h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.face1 .inner p {
+    font: 18px/1.3 "times-roman";
+    color: #dddddd;
+}
+/* -------- [.face2] -------- */
+.face2 .inner>nav>div {
+    width: 290px;
+    height: 253px;
+    margin-bottom: 20px;
+    float: left;
+    text-align: center;
+}
+.face2 .inner>nav>div:nth-child(odd) {
+    margin-right: 20px;
+}
+.face2 .inner>nav>div i {
+    font-size: 80px;
+}
+.face2 .inner>nav>div h2 {
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+/* -------- [.face3] -------- */
+.face3 .inner>div {
+    height: 253px;
+    margin-bottom: 20px;
+}
+.face3 .inner>div .mem-pic {
+    /* 공간 점유 */
+    width: 181px;
+    height: 181px;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    /* 공간 채우기 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /*  콘텐츠 흐름  */
+    position: relative;
+    float: left;
+}
+.face3 .inner>div:nth-child(1) .mem-pic {
+    background-image: url("img/member1.png");
+}
+.face3 .inner>div:nth-child(2) .mem-pic {
+    background-image: url("img/member2.png");
+}
+.face3 .inner>div:nth-child(3) .mem-pic {
+    background-image: url("img/member3.png");
+}
+.face3 .inner>div .mem-intro {
+    width: 322px;
+    height: 179px;
+    float: right;
+    position: relative;
+}
+.face3 .inner>div .mem-intro p {
+    font: 21px/1.4 "Times Roman";
+}
+.face3 .inner>div .mem-intro .join-date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: aquamarine;
+}
+/* -------- [.face4] -------- */
+.face4 .inner>div:first-child {
+    height: 515px;
+}
+.face4 .inner>div:last-child {
+    margin-top: 20px;
+    height: 265px;
+    position: relative;
+}
+.face4 .inner>div video {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.face4 .inner>div h2 {
+    color: #fff;
+}
+.face4 .inner>div p {
+    margin-top: 20px;
+    font: 21px/1.4 "Times Roman";
+}
+.face4 .inner>div .topic-date {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+}
+/* -------- [.face5] -------- */
+.face5 h2 {
+    font: 40px/1.2 "orbitron";
+    font-weight: bolder;
+}
+.face5 .pic {
+    width: 100%;
+    height: 440px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background: url("img/teslaoptimus.jpg") center/cover;
+}
+.face5 img {
+    margin-top: 10px;
+}
+.face5 .reflect {
+    width: 100%;
+    position: absolute;
+    transition: all 500ms;
+    left: 0;
+    top: 100%;
+}
+.face5:hover .reflect {
+    position: absolute;
+    top: -50%;
+}
+/* -------- [.face6] -------- */
+.face6>.inner>div {
+    height: 185px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.face6>.inner>div i {
+    width: 150px;
+    font-size: 113px;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+.face6>.inner>div:first-child i {
+    margin-top: 10px;
+    font-size: 95px;
+}
+.face6>.inner>div .content {
+    float: right;
+    width: 60%;
+}
+.face6>.inner>div .content h2 {}
+.face6>.inner>div .content p {}
+.face6>.inner>div .content a {
+    color: aqua;
+}
+/* -------- [.face7] -------- */
+/* opacity 개별 컨트롤 */
+.face7 .inner>div {
+    opacity: 1;
+}
+.face7 .inner>div>h2,
+.face7 .inner>div img {
+    opacity: 0.7;
+}
+.face7:hover .inner>div>h2,
+.face7:hover .inner>div img {
+    opacity: 1;
+}
+.face7 .inner h2 {
+    /* 위치 설정 */
+    z-index: 10;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    /*  콘텐츠 설정  */
+    font-size: 60px;
+    text-shadow: 2px 2px 5px aqua;
+}
+.face7 .inner .video-frame {
+    position: absolute;
+    overflow: hidden;
+    /* 상위 요소 가로 치수 */
+    width: 528px;
+    height: 728px;
+}
+.face7 .inner video {
+    width: auto;
+    /* 콘텐츠 크기 */
+    height: 728px;
+    position: absolute;
+    left: -53%;
+}
+.face7 .inner .deco-text {
+    width: 80%;
+    position: absolute;
+    top: 35%;
+}
+.face7 .inner .deco-line {
+    width: 110%;
+    position: absolute;
+    top: -20%;
+}
+/* -------- [.face8] -------- */
+.face8 .inner>div:nth-child(1) {
+    height: 460px;
+    margin-bottom: 20px;
+}
+.face8 .inner>div:nth-child(2),
+.face8 .inner>div:nth-child(3) {
+    height: 320px;
+    position: absolute;  /* 마진을 포함한 최외곽 기준으로 위치 정렬 */
+    width: 290px;
+    margin-right: 20px;
+}
+.face8 .inner>div:nth-child(3) {
+    right: -20px;
+}
+.face8 .inner>div h2 {
+    font-size: 35px;
+}
+.face8 .inner>div:first-child i {
+    position: absolute;
+    top: 140px;
+    right: 35px;
+    font-size: 200px;
+}
+.face8 .inner>div span {
+    position: absolute;
+    top: 190px;
+    left: 70px;
+    font-size: 70px;
+    transition: all 300ms;
+    font-weight: bolder;
+}
+.face8 .inner>div:hover span {
+    text-shadow: 0 0 10px aqua;
+}
+.face8 .inner>div i {
+    position: absolute;
+    bottom: 50px;
+    right: 35px;
+    font-size: 100px;
+}
+.face8 .inner>div h3 {
+    position: absolute;
+    bottom: 35px;
+}
+.face8 .inner>div p {
+    font-size: 30px;
+}
+/* ---------- 5) 내부 콘텐츠 Face 별 개별 동작 지정 끝 ---------- */
+/* ========== 갤러리 화면 요소 제어 끝 ========== */
